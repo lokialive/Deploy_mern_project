@@ -3,6 +3,8 @@ const Router = require('koa-router')
 const mongoose = require('mongoose')
 const db = require('./config/keys').mongoURI
 
+const cors = require('koa2-cors')
+
 // instantiate koa
 const app = new koa()
 const router = new Router()
@@ -15,6 +17,8 @@ const passport = require('koa-passport')
 const posts = require('./routes/api/posts')
 
 const path = require('path')
+
+app.use(cors())
 
 // Connect the database
 mongoose
